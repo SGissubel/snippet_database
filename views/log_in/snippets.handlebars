@@ -1,0 +1,31 @@
+
+<div>
+  <div id="editor">{{snippets.snippet}}</div>
+</div>
+
+<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+   var editor = ace.edit("editor");
+   editor.setTheme("ace/theme/monokai");
+   editor.getSession().setMode("ace/mode/javascript");
+</script>
+
+
+<footer>
+<a href="/show">click here</a>
+</footer>
+
+
+
+{{/if}}
+{{#unless logged_in}}
+    <p>
+        You must login to view snippets.
+    </p>
+{{/unless}}
+   
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="/assets/javascript/script.js"></script>
+
+

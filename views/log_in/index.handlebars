@@ -1,0 +1,114 @@
+<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+{{#if logged_in}}
+<header>
+  
+  <div class="welcome">        
+    <h4>Welcome {{screen_name}}</h4>
+  </div>
+
+    <a class="sign_out" href="/users/sign-out">Sign Out</a> <br>
+
+<h1><i>SnipSnap</i></h1>
+
+
+
+<div class="btn-snip">
+<a class="create_snip">Click to Create a new Snippet!</a>
+</div>
+<div id="snippet_div"></div>
+</header>
+<div class="ref_delete">
+  <a class="refresh">Refresh Page</a>
+  <a class="delete_snip" data-confirm="Are you sure?" data-method="delete">Delete a Snippet</a>
+</div>
+<div class="languages">
+<h3>Make Sure to Tag the Languages Your Snippet Contains!</h3>
+<h4>Before you submit your snippet</h4>
+</div>
+
+<form action="/snippet/create" id="form" method="POST">
+<div class="tags">
+  <div class="col-xs-3" id="jscript">
+    <input class="cancel_tag" type="radio" id="js" name="javascript" value=1><label for="js">JavaScript</label><br>
+    <input class="cancel_tag" type="radio" id="jq" name="jquery" value=1><label for="jq">jQuery</label>
+    <input class="cancel_tag" type="radio" id="nd" name="node" value=1><label for="nd">Node</label>
+  </div>
+  <div class="col-xs-3" id="htm">
+    <input class="cancel_tag" type="radio" id="html" name="html" value=1><label for="html">HTML</label>
+   </div>
+   <div class="col-xs-3" id="cs">
+    <input class="cancel_tag" type="radio" id="css" name="css" value=1><label for="css">CSS</label><br>
+    <input class="cancel_tag" type="radio" id="bs" name="bootstrap" value=1><label for="bs">Bootstrap</label>
+    <input class="cancel_tag" type="radio" id="sas" name="sass" value=1><label for="sas">SASS</label>
+  </div>
+  <div class="col-xs-3" id="seeql">
+    <input class="cancel_tag" type="radio" id="sql" name="sql" value=1><label for="sql">SQL</label><br>
+    <input class="cancel_tag" type="radio" id="my" name="mysql" value=1><label for="my">MySQL</label>
+    <input class="cancel_tag" type="radio" id="mng" name="mongo" value=1><label for="mng">Mongo</label>
+  </div>
+
+  </div>   
+  <div class="form_sub">
+    <input class="form_snip" type="text" placeholder="Snippet Title" name="title"><br>
+    <input type="hidden" name="snippet" class="form_snip" id="form_snippet"><br>
+    <button id="form_sub">Submit</button>
+  </div>
+</form>
+</div>
+<div class="cancel" style="display: none">Cancel New Snippet</div>
+<div id="bottom_half">
+    <div id="snippet_disp_div"></div>
+    <div id="code_ed">
+        <div id="editor"></div>
+    </div>
+</div>
+<meta id="userID" data-user_id="{{user_id}}">
+
+<div class="move_snip"></div>
+
+<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+   var editor = ace.edit("editor");
+   editor.setTheme("ace/theme/monokai");
+   editor.getSession().setMode("ace/mode/javascript");
+</script> 
+
+<form id="code_hidden" action="/snippet/create" method="POST">
+  <input type="text" id="hide_tag" name="hide_tag" placeholder="name of snippet">
+  <input id="submit" type="submit">
+</form>
+
+<!-- <footer>
+<a href="/show">click here</a>
+</footer> -->
+
+
+
+
+{{/if}}
+
+{{#unless logged_in}}
+
+  <p id="sign_up">
+    Sign Up or Log In to Start Creating and Sharing.
+  </p> 
+    <div class="sign_in">
+    <a href="/users/sign-in">Sign In</a>
+    --
+    <a href="/users/new">Sign Up</a>
+  </div>
+
+    <p>
+        You must login to view snippets.
+    </p>
+{{/unless}}
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="/assets/javascript/log_in_js.js"></script>
+    <script>
+    // var editor = ace.edit("editor");
+    // editor.setTheme("ace/theme/monokai");
+    // editor.getSession().setMode("ace/mode/javascript");
+    </script>
+
+

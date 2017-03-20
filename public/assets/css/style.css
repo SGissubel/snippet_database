@@ -1,0 +1,228 @@
+body {
+/*  padding: 0 50px;*/ 
+ background-color: rgba(21, 183, 209, 0.58) !important;
+ font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#welcomePage{
+  padding-bottom: 10em;
+  background: linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.9)
+    ), url('code.jpg')
+}
+#snipsnap{
+  font-size: 7em;
+  margin-top: .4em;
+}
+h2{
+  text-align: center;
+}
+.sign_in{
+  font-size: 3em;
+  text-align: center;
+}
+#sign_up{
+  padding-top: 2em;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+}
+.welcome {
+  width: 50%;
+  float: left;
+}
+#left{
+  font-size: 20em;
+  float: right;
+}
+.create-update-form{
+  margin-top: 10em;
+  width: 15%;
+  border: solid 1px black;
+  padding: 5px 13px;
+}
+.signing_in{
+  padding: 2em;
+}
+#pass{
+  margin-left: 1.85em;
+}
+#right{
+  font-size: 20em;
+}
+.col-xs-12{
+  padding: 5em;
+  background-color: black;
+}
+header{
+  background: linear-gradient(
+    rgba(0,0,0,.1),
+    rgba(0,0,0,.9)
+    ), url('code.jpg');
+  padding: 1em 9em;
+  background-color: black;
+  color: white;
+}
+.navbar-brand{
+  font-size: 28px;
+}
+h1{
+  font-size: 42px;
+  text-align: center;
+  margin-top: 1em;
+}
+.sign_out {
+  float: right;
+  color: #00B7FF;
+}
+.btn-snip, .create_snip{
+  color: white;
+  font-size: large;
+}
+#code_insert {
+  display: none;
+}
+#code_hidden{
+  display: none;
+}
+/*#editor {
+    left: 900px;
+    position: absolute;
+    top: 400px;
+    right: 0;
+    bottom: -400px;
+    display:none;
+}*/
+#editor {
+  top: 470px;
+  bottom: -750px;
+  left: 43%;
+  right: 0;
+  margin-right: 3em;
+    position: absolute;
+    margin-bottom: 2em;
+    display:none;
+}
+.navbar {
+  background-color: black !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid white !important;
+  color: white !important;
+  margin: 0 9em !important;
+}
+.navigation_bar {
+  background-color: black;
+}
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+
+.navbar .navbar-collapse { position: relative; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: black; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+@media screen and (max-width: 767px) {
+   .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+   
+   .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+   .navbar .nav-collapse .navbar-form { margin: 0; }
+   .nav-collapse>li { float: none; }
+}
+.snip{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 21em;
+    float: left;
+    margin: 5px;
+    border: solid 2px black;
+    max-width: 300px;
+    padding: 5px;
+}
+.refresh{
+  font-size: 21px;
+  margin-left: 1em;
+}
+.delete_snip{
+  float: right;
+  font-size: 21px;
+  margin-right: 1em;
+}
+.languages{
+  padding-left: 1em;
+}
+#snippet_disp_div{
+  padding-left: 3.5%;
+    margin: 2em 3em;
+/*    max-width:350px;
+    float: left;
+*/}
+.container{
+  background-color: black
+}
+#tags{
+  text-align: center;
+  display: inline;
+}
+#jscript{
+  padding-top: 6px;
+  border-radius: 20px;
+    text-align: center;
+  margin-left: 5em;
+  height: 5em;
+  width: 19%;
+  border: 1px solid black
+}
+#htm{
+    padding-top: 6px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 1em;
+    width: 19%;
+  height: 5em;
+  border: 1px solid black
+}
+#cs{
+    padding-top: 6px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 1em;
+    width: 19%;
+  height: 5em;
+  border: 1px solid black
+}
+#seeql{
+    padding-top: 6px;
+    border-radius: 20px;
+    text-align: center;
+  margin-right: 1em;
+    margin-left: 1em;
+    width: 19%;
+  height: 5em;
+  border: 1px solid black
+}
+.form_sub{
+  margin-top: 3em;
+}
+#form_sub{
+  width: 11em;
+}
+.cancel{
+  margin-left: 8%;
+  margin-top: 1em;
+  font-size: x-large;
+}
+.delete_x {
+  border: 1px solid;
+  border-radius: 2%;
+  color: red;
+}

@@ -1,0 +1,27 @@
+  <header id="welcomePage">
+    
+    <div class="welcome"></div>
+
+    <a class="sign_out" href="/users/sign-out">Sign Out</a> <br>
+
+    <h1 id="snipsnap"><i>Welcome to SnipSnap!</i></h1>
+    <h2>Your home for Snippet Storing and Sharing</h2>
+
+
+    <div id="snippet_div"></div>
+
+    {{#unless logged_in}}
+      <p id="sign_up">
+        Sign Up or Log In to Start Creating and Sharing.
+      </p> 
+        <div class="sign_in">
+        <a href="/users/sign-in">Sign In</a>
+        --
+        <a href="/users/new">Sign Up</a>
+      </div>
+ 
+    {{/unless}}
+
+  </header>
+
+  
