@@ -59,4 +59,21 @@ router.post('/create', function(req, res) {
         });
     });
 });
+
+// DELETE /snippet/destroy/4
+//     req.params.id => 4
+router.delete('/destroy/:id', function(req, res) {
+    console.log("======req.param.id======");
+    console.log(req.params.id);
+    //do a delete mysql query 
+    console.log("======req.param.id======");
+    models.Snippet.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function() {
+      res.send(req.params.id);
+    });
+
+})
 module.exports = router;

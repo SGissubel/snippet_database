@@ -7,14 +7,13 @@ editor.$blockScrolling = Infinity;
 // $("#editor").css("display","none");
 console.log("hi");
 $.ajax({
-    url: "http://localhost:3000/log_in/"+url_id,
+    url: "/log_in/"+url_id,
     method: "GET"
 }).done(function (response) {
 
     console.log(response);
     for (var i in response.snippet){
-
-        $("#snippet_disp_div").append($("<div class='snip'>")
+        $("#snippet_disp_div").append($("<div class='snip' data-id='" + response.snippet[i].id + "'>")
             .append(response.snippet[i].title+"<br>"+response.snippet[i].tag+"<br>"+response.snippet[i].updated_at)
             .data("snip",atob(response.snippet[i].snippet))
             .on("click",function(){
@@ -46,18 +45,7 @@ $(document).on('click', '.cancel', function(){
     $(".cancel").css('display', "none");
     $(".cancel_tag").prop('checked', false); 
 })
-$(".cancel_tag").on('click', function(){
-    $(this).prop('checked', true); 
-    if(this.checked == false){
-            $(".cancel_tag").on('click', function(){
-                $(this).prop('checked', false); 
-            })
-        }else if(this.checked == true){
-        $(".cancel_tag").on('click', function(){
-            $(this).prop('checked', false); 
-        })
-    } 
-});
+
 $(document).on('click', '.snip', function(){
     $("#snippet_disp_div").css("width", "40%").css("float", "left").css("margin-top", 0);
 });
@@ -76,13 +64,29 @@ $(".refresh").on("click", function(){
 });
 $(".delete_snip").on("click", function(){
     $(".snip").prepend("<div class='delete_x'>" + "&#10006 Delete This Snippet" + "</div");
-})
+});
+
+$(document).on("click", ".delete_x", function(e){
+    e.preventDefault();
+
+    var parentDiv = $(this).parent();
+    var id = parentDiv.data('id');
+
+    $.ajax({
+        url: "/snippet/destroy/" + id,
+        method: "DELETE"
+    }).done(function(response){
+        var divToDelete = $("div").find("[data-id='" + response + "']");
+        divToDelete.remove();
+        console.log('deleted this: ' + response);
+    });
+});
 
 $("#html_nav").on("click",function(){
     var url_id = $(this).html().trim().toLowerCase();
     console.log(url_id);
     $.ajax({
-        url: "http://localhost:3000/log_in/nav/"+url_id,
+        url: "/log_in/nav/"+url_id,
         method: "GET"
     }).done(function (response) {
         $("#snippet_disp_div").empty();
@@ -109,7 +113,7 @@ $("#css_nav").on("click",function(){
     var url_id = $(this).html().trim().toLowerCase();
     console.log(url_id);
     $.ajax({
-        url: "http://localhost:3000/log_in/nav/"+url_id,
+        url: "/log_in/nav/"+url_id,
         method: "GET"
     }).done(function (response) {
         $("#snippet_disp_div").empty();
@@ -136,7 +140,7 @@ $("#javascript_nav").on("click",function(){
     var url_id = $(this).html().trim().toLowerCase();
     console.log(url_id);
     $.ajax({
-        url: "http://localhost:3000/log_in/nav/"+url_id,
+        url: "/log_in/nav/"+url_id,
         method: "GET"
     }).done(function (response) {
         $("#snippet_disp_div").empty();
@@ -163,7 +167,7 @@ $("#sql_nav").on("click",function(){
     var url_id = $(this).html().trim().toLowerCase();
     console.log(url_id);
     $.ajax({
-        url: "http://localhost:3000/log_in/nav/"+url_id,
+        url: "/log_in/nav/"+url_id,
         method: "GET"
     }).done(function (response) {
         $("#snippet_disp_div").empty();
