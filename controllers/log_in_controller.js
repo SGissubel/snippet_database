@@ -10,7 +10,7 @@ var findUserDeviceById = function(c){
     // return the promise itself
     return models.Snippet.findAll().then(function(device) {
         if (!device) {
-            return 'not find';
+            return 'not fOUNnd';
         }else {
             var data_answer = {};
             for (var i in device) {
