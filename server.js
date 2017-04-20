@@ -13,6 +13,8 @@ var users_controller = require('./controllers/users_controller');
 var snippets_controller = require('./controllers/snippets_controller');
 var log_in_controller = require("./controllers/log_in_controller")
 var PORT = process.env.PORT || 3000;
+var session = require('express-session')
+
 
 var app = express();
 
