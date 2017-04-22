@@ -6,6 +6,18 @@ var models = require("../models");
 
 app.set('port', process.env.PORT || 3000);
 
+if (process.env.DATABASE_URL) {
+  // the application is executed on Heroku ... use the postgres database
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect:  'postgres',
+    protocol: 'postgres',
+    logging:  true //false
+  });
+} else {
+  // the application is executed on the local machine
+  sequelize = new Sequelize("postgres:///my_db");
+}
+
 models.sequelize.sync().then(function () {
   var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
