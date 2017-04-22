@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
-var MODELS = require(".models");
+var Models = require("./models");
 var application_controller = require('./controllers/application_controller');
 var people_controller = require('./controllers/people_controller');
 var users_controller = require('./controllers/users_controller');
@@ -63,11 +63,11 @@ app.use('/people', people_controller);
 app.use('/log_in', log_in_controller);
 
 
-Models.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log(`Listening on PORT: ${PORT}`);
- 	})
- });
+// Models.sequelize.sync({ force: false }).then(function() {
+//   app.listen(PORT, function() {
+//     console.log(`Listening on PORT: ${PORT}`);
+//  	})
+//  });
 
 module.exports = app;
 
