@@ -11,10 +11,11 @@ var application_controller = require('./controllers/application_controller');
 var people_controller = require('./controllers/people_controller');
 var users_controller = require('./controllers/users_controller');
 var snippets_controller = require('./controllers/snippets_controller');
-var log_in_controller = require("./controllers/log_in_controller")
+var log_in_controller = require("./controllers/log_in_controller");
 var PORT = process.env.PORT || 3000;
-var session = require('express-session')
+var session = require('express-session');
 
+var cookieSession = require('cookie-session');
 
 var app = express();
 
@@ -22,10 +23,16 @@ var app = express();
 app.use(methodOverride('_method'))
 
 //allow sessions
-app.use(session({ secret: 'app', cookie: { maxAge: 900000 }, //this is 15 minute sessions. 
-    resave: false,
-    saveUninitialized: false}));
+// app.use(session({ secret: 'app', cookie: { maxAge: 900000 }, //this is 15 minute sessions. 
+//     resave: false,
+//     saveUninitialized: false}));
 app.use(cookieParser());
+
+app.use(cookieSession({
+	name: 'session',
+	keys: [0],
+	maxAge: 24 * 60 * 60 * 1000
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

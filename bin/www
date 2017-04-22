@@ -1,23 +1,13 @@
-var sequelize = require('../server').connect();
+#!/usr/bin/env node
 
-if (sequelize)
-{
-    sequelize.authenticate().then( function() {
-        var config = sequelize.connectionManager.config;
-        console.log('sequelize-heroku: Connected to '+config.host+' as '+config.username+'.');
-        
-        sequelize.query('SELECT 1+1 as test').then( function(res) {
-            
-            console.log('1+1='+res[0].test);
-            
-        });
-        
-    }).catch( function(err) {
-        var config = sequelize.connectionManager.config;
-        console.log('Sequelize: Error connecting '+config.host+' as '+config.user+': '+err);
-    });
-}
-else
-{
-    console.log('No environnement variable found.');
-}
+var debug = require('debug')('express-example');
+var app = require('../server');
+var models = require("../models");
+
+app.set('port', process.env.PORT || 3000);
+
+models.sequelize.sync().then(function () {
+  var server = app.listen(app.get('port'), function() {
+    debug('Express server listening on port ' + server.address().port);
+  });
+});
