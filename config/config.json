@@ -1,11 +1,12 @@
 {
   "development": {
-    "port": 3306,
+    "port": 8889,
     "dialect": "mysql",
     "host": "localhost",
     "username": "root",
     "password": "root",
-    "database": "snippets_db"},
+    "database": "snippets_db"
+  },
   "test": {
     "username": "root",
     "password": null,
