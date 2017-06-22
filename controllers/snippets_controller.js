@@ -49,14 +49,14 @@ router.post('/create', function(req, res) {
 
     console.log(seq_params);
     models.Snippet.create(seq_params).then(function(result) {
-        res.redirect('/users/login');
-        // res.render('log_in/index',{
-        //     logged_in: req.session.logged_in,
-        //     id: req.session.id,
-        //     screen_name: req.session.user_screen_name,
-        //     name:req.session.name,
-        //     user_id: req.session.user_id
-        // });
+        // res.redirect('/users/login');
+        res.render('log_in/index',{
+            logged_in: req.session.logged_in,
+            id: req.session.id,
+            screen_name: req.session.user_screen_name,
+            name:req.session.name,
+            user_id: req.session.user_id
+        });
     });
 });
 
