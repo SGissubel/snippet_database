@@ -67,7 +67,9 @@ router.get("/nav/:snippet_id", function(req,res){
                     'css': 1
                 }, {
                     'sass': 1
-                }, {'bootstrap': 1}]
+                }, {
+                    'bootstrap': 1
+                }]
             }
         };
     }else if(req.params.snippet_id == ("javascript"||"jquery"||"node")){

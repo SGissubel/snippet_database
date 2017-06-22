@@ -45,6 +45,8 @@ router.post('/create', function(req, res) {
     seq_params["snippet"] = req.body.snippet;
     tagString = tagString.toString();
     tagString = tagString.replace(/,/g, ", ");
+    console.log(tagString);
+    debugger;
     seq_params["tag"] = tagString;
 
     console.log(seq_params);

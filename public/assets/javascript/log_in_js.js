@@ -5,7 +5,9 @@ editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/javascript");
 editor.$blockScrolling = Infinity;
 // $("#editor").css("display","none");
-console.log("hi");
+
+
+
 $.ajax({
     url: "/log_in/"+url_id,
     method: "GET"
@@ -23,12 +25,13 @@ $.ajax({
                 if (editor.getValue() != "") {
                     editor.remove();
                 }
-                // console.log($(this).data("snip"));
                 editor.setValue($(this).data("snip"));
             }
         ));
     }
     });
+
+
 $('.create_snip').on('click', function(){
     editor.remove();
     $("#editor").fadeIn(1500).css('left', '8%').css('right', '8%');
@@ -151,7 +154,7 @@ $("#javascript_nav").on("click",function(){
                 .append(response.snippet[i].title+"<br>"+response.snippet[i].tag+"<br>"+response.snippet[i].updated_at)
                 .data("snip",atob(response.snippet[i].snippet))
                 .on("click",function(){
-                        $("#editor").fadeIn(1500)
+                        $("#editor").fadeIn(1500).css('margin-left', '3em');
                         if (editor.getValue() != "") {
                             editor.remove();
                         }
