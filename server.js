@@ -63,11 +63,7 @@ app.use('/people', people_controller);
 app.use('/log_in', log_in_controller);
 
 
-// Models.sequelize.sync({ force: false }).then(function() {
-//   app.listen(PORT, function() {
-//     console.log(`Listening on PORT: ${PORT}`);
-//  	})
-//  });
+
 
 module.exports = app;
 
